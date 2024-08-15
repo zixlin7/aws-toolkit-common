@@ -1595,6 +1595,16 @@
             "description": "The type of an SQS Queue"
         },
         {
+            "name": "ssoRegistrationClientId",
+            "type": "string",
+            "description": "The client ID of an SSO registration."
+        },
+        {
+            "name": "ssoRegistrationExpiresAt",
+            "type": "string",
+            "description": "Date/time that an SSO client registration expires."
+        },
+        {
             "name": "successCount",
             "type": "int",
             "description": "The number of successful operations"
@@ -2455,6 +2465,14 @@
                 },
                 {
                     "type": "source"
+                },
+                {
+                    "type": "ssoRegistrationClientId",
+                    "required": false
+                },
+                {
+                    "type": "ssoRegistrationExpiresAt",
+                    "required": false
                 }
             ]
         },
@@ -2530,8 +2548,20 @@
                     "required": true
                 },
                 {
+                    "type": "credentialStartUrl",
+                    "required": false
+                },
+                {
                     "type": "source",
                     "required": true
+                },
+                {
+                    "type": "ssoRegistrationClientId",
+                    "required": false
+                },
+                {
+                    "type": "ssoRegistrationExpiresAt",
+                    "required": false
                 }
             ],
             "passive": true
@@ -2655,6 +2685,14 @@
                 },
                 {
                     "type": "source"
+                },
+                {
+                    "type": "ssoRegistrationClientId",
+                    "required": false
+                },
+                {
+                    "type": "ssoRegistrationExpiresAt",
+                    "required": false
                 }
             ]
         },
@@ -2726,6 +2764,10 @@
                     "required": false
                 },
                 {
+                    "type": "credentialStartUrl",
+                    "required": false
+                },
+                {
                     "type": "credentialType",
                     "required": false
                 },
@@ -2746,6 +2788,14 @@
                 },
                 {
                     "type": "sessionDuration",
+                    "required": false
+                },
+                {
+                    "type": "ssoRegistrationClientId",
+                    "required": false
+                },
+                {
+                    "type": "ssoRegistrationExpiresAt",
                     "required": false
                 }
             ]
@@ -4996,6 +5046,19 @@
             ]
         },
         {
+            "name": "dynamodb_deleteRecord",
+            "description": "Deletes a record in DynamoDB record",
+            "metadata": [
+                {
+                    "type": "reason",
+                    "required": false
+                },
+                {
+                    "type": "result"
+                }
+            ]
+        },
+        {
             "name": "dynamodb_deleteTable",
             "description": "Delete a DynamoDB table",
             "metadata": [
@@ -5029,6 +5092,10 @@
             "description": "Fetch records from a DynamoDB table in the table browser",
             "metadata": [
                 {
+                    "type": "count",
+                    "required": false
+                },
+                {
                     "type": "dynamoDbFetchType"
                 },
                 {
@@ -5041,11 +5108,36 @@
             ]
         },
         {
+            "name": "dynamodb_fetchTables",
+            "description": "Fetches the tables in a DynamoDB entity",
+            "metadata": [
+                {
+                    "type": "count",
+                    "required": false
+                },
+                {
+                    "type": "result"
+                },
+                {
+                    "type": "source",
+                    "required": false
+                }
+            ]
+        },
+        {
             "name": "dynamodb_openTable",
             "description": "Open a DynamoDB table in the table browser",
             "metadata": [
                 {
+                    "type": "count",
+                    "required": false
+                },
+                {
                     "type": "result"
+                },
+                {
+                    "type": "source",
+                    "required": false
                 }
             ]
         },
